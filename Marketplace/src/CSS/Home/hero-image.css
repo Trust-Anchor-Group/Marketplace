@@ -1,0 +1,40 @@
+/*Hero Image*/
+main{
+	margin: auto 0;
+}
+code{
+    color: black !important;
+}
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.wixstatic.com/media/6da59a_7cd35dd6d3954668ab699ecb9a022222~mv2_d_6016_4016_s_4_2.jpg/v1/fill/w_2400,h_1049,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/6da59a_7cd35dd6d3954668ab699ecb9a022222~mv2_d_6016_4016_s_4_2.jpg");
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  
+  .hero-text button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    color: black;
+    background-color: #ddd;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .hero-text button:hover {
+    background-color: #555;
+    color: white;
+  }

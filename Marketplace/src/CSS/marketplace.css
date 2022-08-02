@@ -1,0 +1,412 @@
+html {
+  height: 100%;
+}
+
+body{
+margin: auto 0;
+/*background: url("Themes/images/nasa.jpg") no-repeat fixed center ;*/
+background-color: #f3f2ef !important;
+font-family: Arial, Helvetica, sans-serif;
+min-height: 100%;
+}
+
+main {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 8em auto 0;
+}
+
+header
+{
+  background-color: #1A1A1A;
+  padding: 0.5em, 1.5em;
+  position: fixed;
+  float:top;
+  top: 0;
+  width: 100%;
+  z-index:3;
+}
+
+
+
+
+h2{
+display: block;
+font-size: 0.5em;
+font-weight: bold;
+text-align: center;
+}
+
+p{
+display: block;
+text-align: center;
+}
+
+
+a:link {
+text-decoration: none;
+color: black;
+}
+
+a:visited {
+text-decoration: none;
+color: #1A1A1A;
+}
+
+a:hover {
+text-decoration: none;
+color: #2e3842;
+}
+
+a:active {
+text-decoration: none;
+}
+
+.zone {
+margin: 2% 2% 2% 2%;
+/* cursor:pointer; */
+/* display:inline-block; */
+/* color:#FFF; */
+/*font-size:2em;*/
+border-radius:4px;
+border:1px solid #bbb;
+transition: all 0.3s linear;
+/* box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;*/
+}
+
+.token_zone{
+padding:30px 50px;
+margin:40px 60px;
+/* cursor:pointer; */
+/* display:inline-block; */
+/* color:#FFF; 
+font-size:2em;*/
+border-radius:4px;
+border:1px solid #bbb;
+transition: all 0.3s linear;
+}
+
+
+.token_zone:hover{
+-webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+-moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+-o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+}
+
+.zone:hover {
+/*-webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+-moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+-o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;*/
+}
+
+
+.buy_btn {
+background-color: #ddd;
+border: none;
+color: black;
+padding: 16px 32px;
+text-align: center;
+font-size: 16px;
+margin: 4px 2px;
+transition: 0.3s;
+}
+
+.active, .buy_btn:hover {
+background-color: #555;
+}
+
+.content {
+padding: 0 18px;
+display: none;
+overflow: hidden;
+background-color: #f1f1f1;
+}
+
+/* NAV */
+
+.main-nav{
+display: flex;
+list-style: none;
+font-size: 0.7em;
+margin: 0;
+}
+.main-nav input[type=text] {
+float: right;
+border: none;
+font-size: inherit;
+}
+
+.login_button {
+  background-color: #70959d;
+  border-radius: 8px;
+}
+
+.login_button:hover{
+	background: #7ba2b9;
+}
+/* Blue */
+
+@media only screen and (max-width: 600px) {
+.main-nav{
+    font-size: 0.5em;
+    padding: 0;
+}
+li{
+	padding: 0.5rem !important;
+}
+}
+
+ul {
+list-style: none;
+margin: 0;
+padding-left: 0;
+}
+
+li {
+display: block;
+float: left;
+padding: 1rem;
+position: relative;
+text-decoration: none;
+transition-duration: 0.5s;
+}
+
+li:hover {
+/*background: #bbb;*/
+cursor: pointer;
+}
+
+.push{
+margin-left: auto;
+}
+
+.sticky{
+font-size:2em;
+position: fixed;
+top: 0;
+width: 100%;
+border: none;
+z-index: 7;
+}
+
+/*Dopdown*/
+
+.dropdown{
+	position: absolute !important;
+	padding: 0;
+	width: max-content;
+}
+
+ul li ul {
+background: #e1e1e1;
+visibility: hidden;
+opacity: 0;
+min-width: 5rem;
+position: absolute;
+transition: all 0.5s ease;
+margin-top: 1rem;
+left: 0;
+display: none;
+}
+
+ul li:hover > ul,
+ul li:focus-within > ul, 
+ul li ul:hover {
+visibility: visible;
+opacity: 1;
+display: block;
+}
+
+ul li ul li {
+clear: both;
+width: 100%;
+}
+
+/* QR-code image overlay */
+.glyph-container {
+width: 100%;
+}
+.overlay {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+background-color: #008CBA;
+overflow: hidden;
+width: 100%;
+height: 100%;
+-webkit-transform: scale(0);
+-ms-transform: scale(0);
+transform: scale(0);
+-webkit-transition: .3s ease;
+transition: .3s ease;
+}
+
+.glyph-container:hover .overlay {
+-webkit-transform: scale(1);
+-ms-transform: scale(1);
+transform: scale(1);
+}
+
+/* QR-Code */
+
+.qr-code-img{
+max-width: 20%;
+max-height: 20%;
+display: block; /* remove extra space below image */
+}
+.image {
+display: block;
+width: 100%;
+height: auto;
+}
+
+/* cover */
+
+.container{
+display: flex;
+align-items: center;
+justify-content: center;
+height: 50vh;
+border: none;
+}
+
+.info{
+	
+display: block;
+padding: 2rem 0 0 0 !important;
+height: auto;
+}
+
+.cover{
+width: 25rem;
+}
+
+/* project grid */
+
+.grid-wrapper{
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+border: none;
+height: auto;
+border: 1px solid #bbb;
+}
+
+.box > img{
+  max-width: 100%;
+  max-height: 70px;
+  vertical-align: top;
+}
+
+.box > h2, h3{
+	font-size: small !important;
+	overflow-wrap: break-word;
+}
+
+.box > code{
+	font-size: small;
+}
+
+.box{
+background-color: #fff;
+padding: 1rem;
+margin: 1rem;
+text-align: center;
+width: 150px;
+height: 170px;
+}
+
+.box:hover{
+cursor:pointer;
+}
+
+.box-token-description{
+	text-align: left;
+}
+
+.box-token-description > span{
+	font-size: small;
+}
+
+.info_box{
+background-color: #fff;
+padding: 2rem;
+margin: 1.5rem;
+text-align: left;
+}
+
+
+
+/* Footer */
+
+footer{
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+bottom:0;
+width:100%;
+border: none;
+}
+
+/*https://paulund.co.uk/how-to-create-shiny-css-buttons*/
+/***********************************************************************
+*  Green Background
+**********************************************************************/
+.green{
+background: #56B870; /* Old browsers */
+background: -moz-linear-gradient(top, #56B870 0%, #a5c956 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#56B870), color-stop(100%,#a5c956)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #56B870 0%,#a5c956 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #56B870 0%,#a5c956 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #56B870 0%,#a5c956 100%); /* IE10+ */
+background: linear-gradient(top, #56B870 0%,#a5c956 100%); /* W3C */
+}
+
+.tag{
+background: white; /* Old browsers */
+color: #f5f5f6;
+}
+
+
+
+/***********************************************************************
+*  Red Background
+**********************************************************************/
+.red{
+background: #C655BE; /* Old browsers */
+background: -moz-linear-gradient(top, #C655BE 0%, #cf0404 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#C655BE), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #C655BE 0%,#cf0404 100%); /* IE10+ */
+background: linear-gradient(top, #C655BE 0%,#cf0404 100%); /* W3C */
+}
+
+/***********************************************************************
+*  Yellow Background
+**********************************************************************/
+.yellow{
+background: #F3AAAA; /* Old browsers */
+background: -moz-linear-gradient(top, #F3AAAA 0%, #febf04 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F3AAAA), color-stop(100%,#febf04)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* IE10+ */
+background: linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* W3C */
+}
+
+/***********************************************************************
+*  TAG Background
+**********************************************************************/
+.blue{
+background: #7abcff; /* Old browsers */
+background: -moz-linear-gradient(top, #d7dade 0%, #c5cfd9 44%, #2e3842 100%); /* FF3.6+ */
+background: -webkit-linear-gradient(top, #d7dade 0%,#c5cfd9 44%,#2e3842 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #d7dade 0%,#c5cfd9 44%,#2e3842 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #d7dade 0%,#c5cfd9 44%,#2e3842 100%); /* IE10+ */
+background: linear-gradient(top, #d7dade 0%,#c5cfd9 44%,#2e3842 100%); /* W3C */
+}
