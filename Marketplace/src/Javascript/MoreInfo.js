@@ -3,12 +3,12 @@ function moreInfo(collectionName, categoryName){
 	// Check if collectionName is a known collection, Default = unknown.
 	// If not, use default view.
 	if (collectionName == "Default"){
-		const uri = window.location.protocol + "//" + FindNeuronDomain() + "/Marketplace/src/Collections/Default/Info.md?Category=" + categoryName ; 
+		const uri = window.location.protocol + "//" + FindNeuronDomain() + "Marketplace/src/Collections/Default/Info.md?Category=" + categoryName ; 
 		document.location.href = uri;
 		return;
 	}
 	// If the collection is known.
-	const uri = window.location.protocol + "//" + FindNeuronDomain() + "/Marketplace/src/Collections/" + collectionName + "/Info.md?Category=" + collectionName; 
+	const uri = window.location.protocol + "//" + FindNeuronDomain() + "Marketplace/src/Collections/" + collectionName + "/Info.md?Category=" + collectionName; 
 	document.location.href = uri;
 	return;
 
@@ -19,12 +19,12 @@ function moreTokenInfo(category, tokenId){
 	// Check if category is a known collection, Default = unknown.
 	// If not, use default view.
 	if (category == "Default"){
-		const uri = window.location.protocol + "//" + FindNeuronDomain() + "/Marketplace/src/Collections/Default/TokenInfo.md?TokenId=" + tokenId ; 
+		const uri = window.location.protocol + "//" + FindNeuronDomain() + "Marketplace/src/Collections/Default/TokenInfo.md?TokenId=" + tokenId ; 
 		document.location.href = uri;
 		return;
 	}
 	// If the category is known.
-	const uri = window.location.protocol + "//" + FindNeuronDomain() + "/Marketplace/src/Collections/" + category + "/TokenInfo.md?TokenId=" + tokenId ;
+	const uri = window.location.protocol + "//" + FindNeuronDomain() + "Marketplace/src/Collections/" + category + "/TokenInfo.md?TokenId=" + tokenId ;
 	document.location.href = uri;
 	return;
 }
