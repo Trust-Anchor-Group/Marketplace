@@ -43,7 +43,7 @@ Login: /Marketplace/src/Login.md
 							<h5 class="modal-title">Scan the QR-code with your TAG ID App:</p>
 						</div>
 						<div >
-							<img class="qr-code-img" src="https://mateo.lab.tagroot.io/QR/iotsc:((Url:="2a6d24b9-a8cd-b590-602d-c8634f0510d3@legal.mateo.lab.tagroot.io?TokenID="+TokenId+"&Role=Seller"+"&Auctioneer="+Waher.IoTGateway.Setup.LegalIdentityConfiguration.LatestApprovedLegalIdentityId+"&CommissionPercent="+GetSetting('Commission.Min',0);
+							<img class="qr-code-img" src="https://mateo.lab.tagroot.io/QR/iotsc:((Url:="2a6d24b9-a8cd-b590-602d-c8634f0510d3@legal.mateo.lab.tagroot.io?TokenID="+TokenId+"&Role=Seller"+"&Visibility=PublicSearchable"+"&Auctioneer="+Waher.IoTGateway.Setup.LegalIdentityConfiguration.LatestApprovedLegalIdentityId+"&Currency=EUR"+"&CommissionPercent="+GetSetting('Commission.Min',0);
 							UrlEncode(Url) ))" alt="OR-code"/>
 						</div>
 							<p><strong>Or</strong> copy the following link and paste it into your application: </br> <code>iotsc:((Url))</code></p>
