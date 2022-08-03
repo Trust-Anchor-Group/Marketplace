@@ -28,7 +28,7 @@ Parameter: ReportType
 		if ReportType = "History" then 
 			Token.GenerateHistoryReport()
 		else if ReportType = "Diagram" then
-			Token.GenerateProfilingReport()
+			Token.GetStateDiagram(ReportFormat.Html)
 		else if ReportType = "Profiling" then
 			Token.GenerateProfilingReport(ReportFormat.Html)
 		}}
