@@ -127,7 +127,7 @@ if Tokens.Length != 0 then
 foreach Token in Tokens
 do
 (
-Item := select top 1 * from AuctionItems where Tags[0].Value = Token.TokenId.Value and Tags[0].Name = "TokenID";
+Item := select top 1 * from Waher.Service.IoTBroker.Marketplace.AuctionItem where TokenId = Token.TokenId.Value and Tags[0].Name = "TokenID";
 if Item !=null then
 	( (Item.BestBidPrice != null ? Price := Item.BestBidPrice : Price := Item.AcceptPrice); )
 else 
