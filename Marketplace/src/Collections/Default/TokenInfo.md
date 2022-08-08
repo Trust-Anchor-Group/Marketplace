@@ -30,11 +30,11 @@ Parameter: TokenId
 
 
 
-<div class="container info zone">
-	<div class="token-basic-info token-description-container">
+<div class="container info zone ">
+	<div class="token-basic-info token-description-container bg-secondary bg-opacity-10">
 		<div class="token-title">
 			<div><h2 class= "default-blue" style= "text-align: center;">{{Token.FriendlyName}}</h2></div>
-			<div class="token-img-container"><img class="token-img" src="Images/tokenImage.png" alt="glyph-image"/></div>
+			<div class="token-img-container"><img class="shadow token-img" src="Images/tokenImage.png" alt="glyph-image"/></div>
 		</div>
 		<div class="auction">
 			The auction ends in {{DateTime(Item.Expires.Year,Item.Expires.Month,Item.Expires.Day,Item.Expires.Hour,Item.Expires.Minute,Item.Expires.Second) -  DateTime(Now.Year,Now.Month,Now.Day,Now.Hour,Now.Minute,Now.Second)}}
@@ -66,7 +66,7 @@ Parameter: TokenId
 						<div class="modal-header">
 							<h5 class="modal-title">Scan the QR-code with your TAG ID App:</p>
 						</div>
-						<img class="qr-code-img" src="https://mateo.lab.tagroot.io/QR/iotsc:{{Url:="2a6d4954-a8cd-b788-602d-c8634f539d6d@legal.mateo.lab.tagroot.io?RequestForTendersId="+Item.ContractId+"&Price="+Item.AcceptPrice+"&Currency="+Item.Currency+"&Role=Buyer"+"&Auctioneer="+Waher.IoTGateway.Setup.LegalIdentityConfiguration.LatestApprovedLegalIdentityId;
+						<img class="qr-code-img" src="https://mateo.lab.tagroot.io/QR/iotsc:{{Url:="2a7d62ce-a8e5-d476-9c1f-618860926193@legal.mateo.lab.tagroot.io?RequestForTendersId="+Item.ContractId+"&Visibility=PublicSearchable"+"&Price="+Item.AcceptPrice+"&Currency="+Item.Currency+"&Role=Buyer"+"&Auctioneer="+Waher.IoTGateway.Setup.LegalIdentityConfiguration.LatestApprovedLegalIdentityId;
 						UrlEncode(Url)}}" alt="OR-code"/>
 						<p><strong>Or</strong> copy the following link and paste it into your application: </br> <code>iotsc:{{Url}}</code></p>
 					</div>
@@ -80,7 +80,7 @@ Parameter: TokenId
 						<div class="modal-header">
 							<h5 class="modal-title">Scan the QR-code with your TAG ID App:</p>
 						</div>
-						<img class="qr-code-img" src="https://mateo.lab.tagroot.io/QR/iotsc:{{Url:="2a6d4954-a8cd-b788-602d-c8634f539d6d@legal.mateo.lab.tagroot.io?RequestForTendersId="+Item.ContractId+"&Currency="+Item.Currency+"&Role=Buyer"+"&Auctioneer="+Waher.IoTGateway.Setup.LegalIdentityConfiguration.LatestApprovedLegalIdentityId;
+						<img class="qr-code-img" src="https://mateo.lab.tagroot.io/QR/iotsc:{{Url:="2a7d62ce-a8e5-d476-9c1f-618860926193@legal.mateo.lab.tagroot.io?RequestForTendersId="+Item.ContractId+"&Currency="+Item.Currency+"&Visibility=PublicSearchable"+"&Role=Buyer"+"&Auctioneer="+Waher.IoTGateway.Setup.LegalIdentityConfiguration.LatestApprovedLegalIdentityId;
 						UrlEncode(Url)}}" alt="OR-code"/>
 						<p><strong>Or</strong> copy the following link and paste it into your application: </br> <code>iotsc:{{Url}}</code></p>
 					</div>
@@ -88,7 +88,7 @@ Parameter: TokenId
 			</div>
 		</div>
     </div>
-	<div class="token-basic-info">
+	<div class="token-basic-info bg-secondary bg-opacity-10">
 		<div class="token-description-container">
 			<div class="token-description">
 				<h3 class="default-blue">Description</h3>
@@ -164,7 +164,7 @@ if Token.Visibility == Waher.Service.IoTBroker.Legal.Contracts.ContractVisibilit
 {{
 if Token.HasStateMachine AND Token.Visibility != Waher.Service.IoTBroker.Legal.Contracts.ContractVisibility.CreatorAndParts then
 ( 
-]]<div class="token-basic-info">
+]]<div class="token-basic-info bg-secondary bg-opacity-10">
 <h3 class="default-blue" style= "text-align: center;">Present State</h3>
 
 ((Token.GeneratePresentReport() ))
@@ -190,12 +190,12 @@ Token :=  select * from Waher.Service.IoTBroker.NeuroFeatures.Token where TokenI
 if Token.Length != 0 then
 (
 (Item.BestBidPrice != null ? Price := Item.BestBidPrice : Price := Item.AskingPrice);
-]]<div class="box token_zone" onclick="location.href='TokenInfo.md?TokenId=((Token.TokenId[0]))'">
-<img class="box-token-img" src="data:image/png;base64,((Base64Encode(Token.Glyph[0]) ))" alt="glyph-image"/>
-<div class= "box-token-description">
-<h3><strong>((Token.FriendlyName[0]))</strong></h3>
-Price
-<h3>((Price)) ((Item.Currency))</h3></div>
+]]<div class="shadow card m-2 token_zone" style="width: 13rem;" onclick="location.href='TokenInfo.md?TokenId=((Token.TokenId[0]))'">
+<img class="card-img-top token-image" src="data:image/png;base64,((Base64Encode(Token.Glyph[0]) ))" alt="glyph-image"/>
+<div class= "card-body">
+	<h6 class="card-title text-start">((Token.FriendlyName[0]))</h6>
+	<p class="card-text text-start">Price <br>((Price)) ((Item.Currency))</p>
+</div>
 </div>[[;
 )
 );

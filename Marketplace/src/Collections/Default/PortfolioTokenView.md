@@ -25,7 +25,7 @@ Login: /Marketplace/src/Login.md
 		<div class="token-basic-info token-description-container">
 			<div class="token-title">
 				<h3 class= "default-blue" style= "text-align: center;">{{Token.FriendlyName}}</h3>
-				<div class="token-img-container"><img class="token-img" src="Images/tokenImage.png" alt="glyph-image"/></div>
+				<div class="token-img-container"><img class="shadow token-img" src="Images/tokenImage.png" alt="glyph-image"/></div>
 			</div>
 			{{
 			if Item = null then
@@ -153,12 +153,11 @@ if MoreItemsFromCollection.Length > 0 then
 foreach Item in MoreItemsFromCollection
 do 
 (   
-]]<div class="box token_zone" onclick="location.href='TokenInfo.md?TokenId=((Item.TokenId))'">
-	<img src="data:image/png;base64,((Base64Encode(Item.Glyph) ))" alt="glyph-image"/>
-	<div class= "box-token-description">
-	<h3><strong>((Item.FriendlyName))</strong></h3>
-	Price
-	<h3>((Item.Value)) ((Item.Currency))</h3>
+]]<div class="shadow card m-2 token_zone" onclick="location.href='TokenInfo.md?TokenId=((Item.TokenId))'">
+	<img class="card-img-top token-image" src="data:image/png;base64,((Base64Encode(Item.Glyph) ))" alt="glyph-image"/>
+	<div class= "card-body">
+		<h6 class="card-title text-start">((Item.FriendlyName))</h6>
+		<p class="card-text text-start">Price <br>((Item.Value)) ((Item.Currency))</p>
 	</div>
 </div>[[
 );

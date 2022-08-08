@@ -86,13 +86,14 @@ Parameter: LogIn
 </div>
 
 <div class="hero-image">
-   <div class="hero-text">
+	<div class="hero-image-gradient"></div>
+	<div class="container hero-text">
     	<h1>Welcome {{MarketplaceUser.Properties.FIRST ??? ""}} {{MarketplaceUser.Properties.LAST ??? ""}}!</h1>
 		<img class="profile-img" src="{{MarketplaceUser.Attachments.Url}}" alt="Profile Picture"/>
     </div>
 </div>
 
-
+<div class = "container">
 {{
 if Tokens.Length != 0 then 
 (
@@ -123,7 +124,7 @@ if Tokens.Length != 0 then
 	</form>
 </div>
 </div>
-<div class="zone grid-wrapper">[[;
+<div class="zone grid-wrapper mt-3">[[;
 foreach Token in Tokens
 do
 (
@@ -134,22 +135,20 @@ else
 	(Price := Token.Value;) ;
 (Token.Category = null ? Category := "Default" : Category := Token.Category);
 if System.IO.Directory.Exists(System.IO.Path.Combine(Waher.IoTGateway.Gateway.RootFolder,"Marketplace\\src\\Collections",Category)) then
-	]]<div class="box token_zone" onclick="location.href='https://mateo.lab.tagroot.io/Marketplace/src/Collections/((Category))/PortfolioTokenView.md?TokenId=((Token.TokenId))'">
-	<img src="data:image/png;base64,((Base64Encode(Token.Glyph) ))" alt="glyph-image"/>
-	<div class= "box-token-description">
-	<h3><strong>((Token.FriendlyName))</strong></h3>
-	Price
-	<h3>((Price)) ((Token.Currency))</h3> 
+	]]<div class="shadow card m-2 token_zone" style="width: 13rem;" onclick="location.href='https://mateo.lab.tagroot.io/Marketplace/src/Collections/((Category))/PortfolioTokenView.md?TokenId=((Token.TokenId))'">
+	<img class="card-img-top token-image" src="data:image/png;base64,((Base64Encode(Token.Glyph) ))" alt="glyph-image"/>
+	<div class= "card-body">
+		<h6 class="card-title">((Token.FriendlyName))</h6>
+		<p class="card-text text-start">Price <br>((Price)) ((Token.Currency))</p>
 	</div>
 	</div>
 	[[
 else 
-	]]<div class="box token_zone" onclick="location.href='https://mateo.lab.tagroot.io/Marketplace/src/Collections/Default/PortfolioTokenView.md?TokenId=((Token.TokenId))'">
-	<img src="data:image/png;base64,((Base64Encode(Token.Glyph) ))" alt="glyph-image"/>
-	<div class= "box-token-description">
-	<h3><strong>((Token.FriendlyName))</strong></h3>
-	Price
-	<h3>((Price)) ((Token.Currency))</h3>
+	]]<div class="shadow card m-2 token_zone" style="width: 13rem;" onclick="location.href='https://mateo.lab.tagroot.io/Marketplace/src/Collections/Default/PortfolioTokenView.md?TokenId=((Token.TokenId))'">
+	<img class="card-img-top token-image" src="data:image/png;base64,((Base64Encode(Token.Glyph) ))" alt="glyph-image"/>
+	<div class= "card-body">
+		<h6 class="card-title">((Token.FriendlyName))</h6>
+		<p class="card-text text-start">Price <br>((Price)) ((Token.Currency))</p>
 	</div>
 	</div>
 	[[
@@ -160,4 +159,5 @@ else
 	</div>
 	[[
 }}
+</div>
 </div>

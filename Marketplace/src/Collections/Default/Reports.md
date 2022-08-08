@@ -17,13 +17,13 @@ Parameter: ReportType
 </div>
 
 <div class="container info zone">
-	<div class="token-basic-info token-description-container">
+	<div class="token-basic-info token-description-container bg-secondary bg-opacity-10">
 		<div class="token-title">
 			<div>
 				<h3 class= "default-blue" style= "text-align: center;">{{Token.FriendlyName}}</h3>
 			</div>
 		</div>
-		<div>
+		<div class="report-container">
 		{{
 		if ReportType = "History" then 
 			Token.GenerateHistoryReport()
