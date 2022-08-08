@@ -4,7 +4,6 @@ Date: 2022-04-11
 Author: Mateo Florez
 Copyright: Copyright.md
 Master: /Marketplace/src/Master.md
-CSS: /Marketplace/src/css/marketplace.css
 CSS: /Marketplace/src/Collections/Default/css/style.css
 Parameter: Category
 Parameter: Sort
@@ -23,10 +22,12 @@ Parameter: Sort
 }}
 </div>
 <div class="hero-image">
-   <div class="hero-text">
+	<div class="hero-image-gradient"></div>
+	<div class="container hero-text">
     	<h1>The {{Category}} Collection:</h1>
-  </div>
+	</div> 
 </div>
+<div class="container">
 	<div class="token-basic-info header">
 		<div class="collection-stats">
 			<p><code>{{Items.Length}}</code></br> Items</p>
@@ -50,7 +51,7 @@ Parameter: Sort
 		</form>
 	</div>
 <div class="more-from-collection">
-<div class="zone grid-wrapper">
+<div class="zone grid-wrapper mt-3">
 {{  
 foreach Item in Items
 do
@@ -59,16 +60,16 @@ Token :=  select * from Waher.Service.IoTBroker.NeuroFeatures.Token where TokenI
 if Token.Length != 0 then
 (
 (Item.BestBidPrice != null ? Price := Item.BestBidPrice : Price := Item.AcceptPrice);
-]]<div class="box token_zone" onclick="location.href='TokenInfo.md?TokenId=((Token.TokenId[0]))'">
-<img class="box-token-img" src="data:image/png;base64,((Base64Encode(Token.Glyph[0]) ))" alt="glyph-image"/>
-<div class= "box-token-description">
-<h3><strong>((Token.FriendlyName[0]))</strong></h3>
-Price
-<h3>((Price)) ((Token.Currency[0]))</h3>
+]]<div class="shadow card m-2 token_zone" style="width: 13rem;" onclick="location.href='TokenInfo.md?TokenId=((Token.TokenId[0]))'">
+<img class="card-img-top token-image" src="data:image/png;base64,((Base64Encode(Token.Glyph[0]) ))" alt="glyph-image"/>
+<div class= "card-body">
+<h6 class="card-title text-start">((Token.FriendlyName[0]))</h6>
+<p class="card-text text-start">Price <br>((Price)) ((Item.Currency))</p>
 </div>
 </div>[[;
 )
 );
 }}
+</div>
 </div>
 </div>

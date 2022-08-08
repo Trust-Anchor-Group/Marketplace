@@ -5,7 +5,7 @@ html {
 body{
 margin: auto 0;
 /*background: url("Themes/images/nasa.jpg") no-repeat fixed center ;*/
-background-color: #f3f2ef !important;
+/*background-color: #f3f2ef !important;*/
 font-family: Arial, Helvetica, sans-serif;
 min-height: 100%;
 }
@@ -43,7 +43,7 @@ display: block;
 text-align: center;
 }
 
-
+/*
 a:link {
 text-decoration: none;
 color: black;
@@ -62,37 +62,46 @@ color: #2e3842;
 a:active {
 text-decoration: none;
 }
+*/
 
 .zone {
-margin: 2% 2% 2% 2%;
+/*margin: 2% 2% 2% 2%;
 /* cursor:pointer; */
 /* display:inline-block; */
 /* color:#FFF; */
-/*font-size:2em;*/
+/*font-size:2em;
 border-radius:4px;
-border:1px solid #bbb;
+border:1px solid #bbb*/;
 transition: all 0.3s linear;
 /* box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;*/
 }
 
 .token_zone{
-padding:30px 50px;
-margin:40px 60px;
-/* cursor:pointer; */
+/*padding:30px 50px;
+margin:40px 60px;*/
 /* display:inline-block; */
 /* color:#FFF; 
-font-size:2em;*/
+font-size:2em;
 border-radius:4px;
-border:1px solid #bbb;
+border:1px solid #bbb;*/
+cursor:pointer;
 transition: all 0.3s linear;
+min-height:280px;
+max-height:280px;
 }
+
+.token-image{
+	width:206px;
+	height: 170px;
+}
+
 
 
 .token_zone:hover{
 -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
 -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
 -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px !important;
 }
 
 .zone:hover {
@@ -114,7 +123,7 @@ margin: 4px 2px;
 transition: 0.3s;
 }
 
-.active, .buy_btn:hover {
+.buy_btn:hover {
 background-color: #555;
 }
 
@@ -149,6 +158,7 @@ font-size: inherit;
 }
 /* Blue */
 
+/*
 @media only screen and (max-width: 600px) {
 .main-nav{
     font-size: 0.5em;
@@ -175,13 +185,14 @@ transition-duration: 0.5s;
 }
 
 li:hover {
-/*background: #bbb;*/
+background: #bbb;
 cursor: pointer;
 }
 
 .push{
 margin-left: auto;
 }
+
 
 .sticky{
 font-size:2em;
@@ -191,14 +202,16 @@ width: 100%;
 border: none;
 z-index: 7;
 }
+*/
 
-/*Dopdown*/
+/*Dopdown
 
 .dropdown{
 	position: absolute !important;
 	padding: 0;
 	width: max-content;
 }
+
 
 ul li ul {
 background: #e1e1e1;
@@ -211,7 +224,7 @@ margin-top: 1rem;
 left: 0;
 display: none;
 }
-
+*/
 ul li:hover > ul,
 ul li:focus-within > ul, 
 ul li ul:hover {
@@ -224,7 +237,7 @@ ul li ul li {
 clear: both;
 width: 100%;
 }
-
+*/
 /* QR-code image overlay */
 .glyph-container {
 width: 100%;
@@ -264,15 +277,6 @@ width: 100%;
 height: auto;
 }
 
-/* cover */
-
-.container{
-display: flex;
-align-items: center;
-justify-content: center;
-height: 50vh;
-border: none;
-}
 
 .info{
 	
@@ -289,10 +293,10 @@ width: 25rem;
 
 .grid-wrapper{
 display: grid;
-grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+grid-template-columns: repeat(auto-fill, minmax(206px, 1fr));
 border: none;
 height: auto;
-border: 1px solid #bbb;
+/*border: 1px solid #bbb;*/
 }
 
 .box > img{
@@ -339,18 +343,6 @@ text-align: left;
 }
 
 
-
-/* Footer */
-
-footer{
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
-bottom:0;
-width:100%;
-border: none;
-}
 
 /*https://paulund.co.uk/how-to-create-shiny-css-buttons*/
 /***********************************************************************
