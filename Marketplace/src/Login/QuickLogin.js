@@ -97,6 +97,7 @@ function SignatureReceivedBE(Empty)
 {
 	var Parameters=new URLSearchParams(window.location.search);
 	var From=Parameters.get("from");
+	if(From == null){window.location.href = "Portfolio.md"; return;}
 	window.location.href=From;
 }
 
