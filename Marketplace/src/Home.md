@@ -10,7 +10,7 @@ AllowSciptTag: true
 
 <div style='display:none' id = "collections">
 {{ 
-    Items := select top 4 * from Waher.Service.IoTBroker.Marketplace.AuctionItem
+    Items := select top 6 * from Waher.Service.IoTBroker.Marketplace.AuctionItem
 	where 
 		Type != null
 	and 
@@ -51,7 +51,7 @@ Id := Token.TokenId[0];
 Currency := Item.Currency;
 if System.IO.Directory.Exists(System.IO.Path.Combine(Waher.IoTGateway.Gateway.RootFolder,"Marketplace\\src\\Collections",Cgy)) then
 	]]<div class="shadow card m-2 token_zone" style="width: 13rem;" onclick="moreTokenInfo('((HtmlAttributeEncode(Cgy) ))', '((HtmlAttributeEncode(Id) ))' )">
-		<img class="card-img-top token-image" src="https://mateo.lab.tagroot.io/Marketplace/src/Collections/((Cgy))/Images/tokenImage.png" alt="glyph-image"/>
+		<img class="card-img-top token-image" src="/Marketplace/src/Collections/((Cgy))/Images/tokenImage.png" alt="glyph-image"/>
 		<div class= "card-body">
 		<h6 class="card-title">((Name))</h6>
 		<p class="card-text text-start">Price <br>((Price)) ((Currency))</p>
@@ -60,7 +60,7 @@ if System.IO.Directory.Exists(System.IO.Path.Combine(Waher.IoTGateway.Gateway.Ro
 	[[
 else
 	]]<div class="shadow card m-2 token_zone" style="width: 13rem;" onclick="moreTokenInfo('((HtmlAttributeEncode("Default") ))', '((HtmlAttributeEncode(Id) ))' )">
-		<img class="card-img-top token-image" src="https://mateo.lab.tagroot.io/Marketplace/src/Collections/Default/Images/tokenImage.png" alt="glyph-image"/>
+		<img class="card-img-top token-image" src="/Marketplace/src/Collections/Default/Images/tokenImage.png" alt="glyph-image"/>
 		<div class= "card-body">
 			<h6 class="card-title">((Name))</h6>
 			<p class="card-text text-start">Price <br>((Price)) ((Currency))</p>
@@ -85,7 +85,7 @@ else
 </div>
 <div class="create-and-sell mt-5">
 	<div class="container px-4 py-5" id="hanging-icons">
-    <h4 class="pb-2 border-bottom text-center">Create & Sell your Tokens</h4>
+    <h4 class="pb-2 border-bottom text-center">Create, buy & sell Tokens</h4>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
       <div class="feature-col text-center">
 		<div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0">
@@ -95,7 +95,7 @@ else
 		</div>
         <div>
           <h6 >Setup TAG ID App</h6>
-          <p>Once you’ve downloaded and set up the <span class="text-primary">TAG ID</span> app from the app store, log in by clicking the Login button in the top right corner.<p>
+          <p>Once you’ve downloaded and set-up the <span class="text-primary">TAG ID</span> app from the app store, log in by clicking the Login button in the top right corner.<p>
         </div>
       </div>
       <div class="feature-col text-center">
@@ -127,33 +127,36 @@ else
 
 <div class="container px-4 py-5" id="custom-cards">
 <h4 class="pb-2 border-bottom text-center">Resources to get started </h4>
-
 <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-  <div class="col">
-	<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
-	  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-		<h6 class="mb-4 display-6 lh-1 fw-bold text-center">TAG ID App</h2>
-		<p class="mt-auto">How to setup the TAG ID application</p>
-	  </div>
-	</div>
-  </div>
-
-  <div class="col">
-	<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
-	  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-		<h6 class="mb-4 display-6 lh-1 fw-bold text-center">Buy Tokens</h2>
-		<p class="mt-auto" >How to buy your first Token</p>
-	  </div>
-	</div>
-  </div>
-
-  <div class="col">
-	<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
-	  <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-		<h6 class=" mb-4 display-6 lh-1 fw-bold text-center">Sell Tokens</h2>
-		<p class="mt-auto">How to list your first Token for sale</p>
-	  </div>
-	</div>
-  </div>
+	<a class="text-decoration-none" href="Resources/Tutorials/TagId/TagId.md">
+		<div class="col">
+			<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" >
+			  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 text-center">
+				<h6 class="mb-4 display-6 lh-1 fw-bold">TAG ID App</h2>
+				<p class="mt-auto">How to setup the TAG ID application</p>
+			  </div>
+			</div>
+		</div>
+	</a>
+	<a class="text-decoration-none" href="Resources/Tutorials/Buying/BuyTokens.md">
+		<div class="col">
+			<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" >
+			  <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1 text-center">
+				<h6 class="mb-4 display-6 lh-1 fw-bold">Buy Tokens</h2>
+				<p class="mt-auto" >How to buy your first Token</p>
+			  </div>
+			</div>
+		</div>
+	</a>
+	<a class="text-decoration-none" href="Resources/Tutorials/Selling/SellTokens.md">
+		<div class="col">
+			<div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+			  <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1 text-center">
+				<h6 class=" mb-4 display-6 lh-1 fw-bold">Sell Tokens</h2>
+				<p class="mt-auto">How to list your first Token for sale</p>
+			  </div>
+			</div>
+		</div>
+	</a>
 </div>
 </div>

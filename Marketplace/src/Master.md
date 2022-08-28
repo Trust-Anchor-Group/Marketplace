@@ -6,7 +6,6 @@ BodyOnly: off
 AllowSciptTag: true
 UserVariable: MarketplaceUser
 
-
 <div style='display:none'>
 {{Exists(MarketplaceUser) ? LogedIn := 1 : LogedIn := 0}}
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -24,12 +23,8 @@ UserVariable: MarketplaceUser
 <body>
 <nav class="navbar navbar-expand-lg bg-light sticky-top shadow">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">TAG</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+    <a class="navbar-brand" href="/Marketplace/src/Home.md">TAG</a>
+      <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/Marketplace/src/Home.md">Home</a>
         </li>
@@ -41,18 +36,17 @@ UserVariable: MarketplaceUser
 			<a class="nav-link" href="/Marketplace/src/Portfolio.md">Portfolio</a> 
 		</li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="/Marketplace/src/Resources.md" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="/Marketplace/src/Resources/Resources.md" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Resources
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/Marketplace/src/Resources.md">Help Center</a></li>
-            <li><a class="dropdown-item" href="#">Partners</a></li>
-            <li><a class="dropdown-item" href="#">Docs</a></li>
-			<li><a class="dropdown-item" href="#">NewsLetter</a></li>
+            <li><a class="dropdown-item" href="/Marketplace/src/Resources/Resources.md">Help Center</a></li>
+            <li><a class="dropdown-item" href="/Marketplace/src/ComingSoon.md">Partners</a></li>
+            <li><a class="dropdown-item" href="/Marketplace/src/ComingSoon.md">Docs</a></li>
+			<li><a class="dropdown-item" href="/Marketplace/src/ComingSoon.md">NewsLetter</a></li>
           </ul>
         </li>
       </ul>
-    </div>
 	<ul class="navbar-nav flex-row flex-wrap ms-md-auto">
 		<li class="nav-item">
           <a class="nav-link" aria-current="page" href="#" onclick="changeLoginButton({{LogedIn}});">{{LogedIn = 1? ]]Logout[[ : ]]Login[[}}</a>
@@ -63,17 +57,18 @@ UserVariable: MarketplaceUser
 </body>
 <main class="main">[%Details]
 </main>
-<div class="container">
+<div class="container mt-auto">
   <footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
       <li class="nav-item"><a href="/Marketplace/src/Home.md" class="nav-link px-2 text-muted">Home</a></li>
       <li class="nav-item"><a href="/Marketplace/src/TokenCollections.md" class="nav-link px-2 text-muted">Explore</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+      <li class="nav-item"><a href="/Marketplace/src/ComingSoon.md" class="nav-link px-2 text-muted">FAQs</a></li>
       <li class="nav-item"><a href="https://www.trustanchorgroup.com/aboutus" target="_blank" class="nav-link px-2 text-muted">About</a></li>
     </ul>
     <p class="text-center text-muted">© 2022 Trust Anchor Group AB</p>
   </footer>
 </div>
+
 
     
 

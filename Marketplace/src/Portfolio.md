@@ -1,5 +1,5 @@
-Title: Welcome
-Description: Welcome to Token Marketplace
+Title: Portfolio
+Description: Portfolio
 Date: 2022-04-11
 Author: Mateo Florez
 Copyright: Copyright.md
@@ -22,18 +22,14 @@ Parameter: LogIn
 		MarketplaceUser := null;
 		TemporaryRedirect("Login.md?from=Portfolio.md");
 	)
-	else if LogIn then
-	( 
-		LogIn:=False;
-		
-	)
+	else if LogIn then(LogIn:=False;)
 }}
 {{
 	Order := empty(Sort) ? "Value" : Str(Sort);
 	if Order = "Value ASC" then
 		Tokens := select *
 		from
-			NeuroFeatureTokens
+			Waher.Service.IoTBroker.NeuroFeatures.Token
 		where 
 			OwnerJid = MarketplaceUser.Properties.JID
 		order by
@@ -41,7 +37,7 @@ Parameter: LogIn
 	if Order = "Value DESC" then
 		Tokens := select *
 		from
-			NeuroFeatureTokens
+			Waher.Service.IoTBroker.NeuroFeatures.Token
 		where 
 			OwnerJid = MarketplaceUser.Properties.JID
 		order by
@@ -49,7 +45,7 @@ Parameter: LogIn
 	if Order = "Name ASC" then
 		Tokens := select *
 		from
-			NeuroFeatureTokens
+			Waher.Service.IoTBroker.NeuroFeatures.Token
 		where 
 			OwnerJid = MarketplaceUser.Properties.JID
 		order by
@@ -57,7 +53,7 @@ Parameter: LogIn
 	if Order = "Name DESC" then
 			Tokens := select *
 		from
-			NeuroFeatureTokens
+			Waher.Service.IoTBroker.NeuroFeatures.Token
 		where 
 			OwnerJid = MarketplaceUser.Properties.JID
 		order by
@@ -65,7 +61,7 @@ Parameter: LogIn
 	if Order = "Value" then
 		Tokens := select *
 		from
-			NeuroFeatureTokens
+			Waher.Service.IoTBroker.NeuroFeatures.Token
 		where 
 			OwnerJid = MarketplaceUser.Properties.JID
 		order by
@@ -81,32 +77,34 @@ Parameter: LogIn
 		LogDebug("Redirecting to login page.");
 		TemporaryRedirect("Login.md?from=Portfolio.md");
 	)
-	
-}}
+}} 
 </div>
-
 <div class="hero-image">
 	<div class="hero-image-gradient"></div>
 	<div class="container hero-text">
     	<h1>Welcome {{MarketplaceUser.Properties.FIRST ??? ""}} {{MarketplaceUser.Properties.LAST ??? ""}}!</h1>
-		<img class="profile-img" src="{{MarketplaceUser.Attachments.Url}}" alt="Profile Picture"/>
+		<img class="profile-img" src="{{MarketplaceUser.Attachments[0].BackEndUrl}}" alt="Profile Picture"/>
     </div>
 </div>
-
 <div class = "container">
 {{
-if Tokens.Length != 0 then 
+if Tokens.Length > 0 then 
 (
-]]<div>
-	<div class="token-basic-info header">
-	<h2>Your Tokens</h3>
-		<div class="collection-stats">
-			<p><code>((Tokens.FriendlyName.Length))</code></br> Items</p>
-			<p><code>((sum:= 0; foreach value in Tokens.Value do sum += value;)) ((Tokens.Currency[0]))</code></br> Total volume</p>
-			<p><code>((Max(Tokens.Value) )) ((Tokens.Currency[0]))</code></br>Most Valuable Item</p>
+]]<div class="container my-4">
+<h2>Your Tokens</h3>
+		<div class="row row-cols-1 row-cols-4 g-2 g-lg-3 text-start">
+			<div class="col-md-2">
+				<p class="m-1"><code>((Tokens.FriendlyName.Length))</code></br>Total items</p>
+			</div>
+			<div class="col-md-2">
+				<p class="m-1"><code>((sum:= 0; foreach value in Tokens.Value do sum += value;)) ((Tokens.Currency[0]))</code></br> Total volume</p>
+			</div>
+			<div class="col-md-2">
+				<p class="m-1"><code>((Max(Tokens.Value) )) ((Tokens.Currency[0]))</code></br>Most Valuable Item</p>
+			</div>
 		</div>
-	</div>
-<div class="sort-bar">
+</div>
+<div class="container my-4">
 	<form action="?Sort=">
 		<label for="tokens">Sort by:</label>
 		<select name="Sort" id="sort">
@@ -123,39 +121,38 @@ if Tokens.Length != 0 then
 		<input type="submit" value="Submit">
 	</form>
 </div>
-</div>
 <div class="zone grid-wrapper mt-3">[[;
-foreach Token in Tokens
+foreach Tkn in Tokens
 do
 (
-Item := select top 1 * from Waher.Service.IoTBroker.Marketplace.AuctionItem where TokenId = Token.TokenId.Value and Tags[0].Name = "TokenID";
+Item := select top 1 * from Waher.Service.IoTBroker.Marketplace.AuctionItem where TokenId = Tkn.TokenId and Processed = null; 
 if Item !=null then
-	( (Item.BestBidPrice != null ? Price := Item.BestBidPrice : Price := Item.AcceptPrice); )
+	( (Item.BestBidPrice != null ? Price := Item.BestBidPrice : Price := Item.AskingPrice); )
 else 
-	(Price := Token.Value;) ;
-(Token.Category = null ? Category := "Default" : Category := Token.Category);
+	(Price := Tkn.Value;) ;
+(Tkn.Category = null ? Category := "Default" : Category := Tkn.Category);
 if System.IO.Directory.Exists(System.IO.Path.Combine(Waher.IoTGateway.Gateway.RootFolder,"Marketplace\\src\\Collections",Category)) then
-	]]<div class="shadow card m-2 token_zone" style="width: 13rem;" onclick="location.href='https://mateo.lab.tagroot.io/Marketplace/src/Collections/((Category))/PortfolioTokenView.md?TokenId=((Token.TokenId))'">
-	<img class="card-img-top token-image" src="data:image/png;base64,((Base64Encode(Token.Glyph) ))" alt="glyph-image"/>
+	]]<div class="shadow card m-2 token_zone" style="width: 13rem;" onclick="location.href='https://((Waher.IoTGateway.Gateway.Domain))/Marketplace/src/Collections/((Category))/PortfolioTokenView.md?TokenId=((Tkn.TokenId))'">
+	<img class="card-img-top token-image" src="/Marketplace/src/Collections/((Category))/Images/tokenImage.png"  alt="glyph-image"/>
 	<div class= "card-body">
-		<h6 class="card-title">((Token.FriendlyName))</h6>
-		<p class="card-text text-start">Price <br>((Price)) ((Token.Currency))</p>
+		<h6 class="card-title">((Tkn.FriendlyName))</h6>
+		<p class="card-text text-start">Price <br>((Price)) ((Tkn.Currency))</p>
 	</div>
 	</div>
 	[[
 else 
-	]]<div class="shadow card m-2 token_zone" style="width: 13rem;" onclick="location.href='https://mateo.lab.tagroot.io/Marketplace/src/Collections/Default/PortfolioTokenView.md?TokenId=((Token.TokenId))'">
-	<img class="card-img-top token-image" src="data:image/png;base64,((Base64Encode(Token.Glyph) ))" alt="glyph-image"/>
+	]]<div class="shadow card m-2 token_zone" style="width: 13rem;" onclick="location.href='/Marketplace/src/Collections/Default/PortfolioTokenView.md?TokenId=((Tkn.TokenId))'">
+	<img class="card-img-top token-image" src="data:image/png;base64,((Base64Encode(Tkn.Glyph) ))" alt="glyph-image"/>
 	<div class= "card-body">
-		<h6 class="card-title">((Token.FriendlyName))</h6>
-		<p class="card-text text-start">Price <br>((Price)) ((Token.Currency))</p>
+		<h6 class="card-title">((Tkn.FriendlyName))</h6>
+		<p class="card-text text-start">Price <br>((Price)) ((Tkn.Currency))</p>
 	</div>
 	</div>
 	[[
 );
 )else
-	]]<div class="token_zone">
-		<h1>When you purchase Tokens, they will be showened here</h1>
+	]]<div class="container text-center">
+		<h2>When you purchase Tokens, they will be showed here</h2>
 	</div>
 	[[
 }}

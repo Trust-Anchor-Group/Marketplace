@@ -1,5 +1,5 @@
 Title: Token Information
-Description: Token Reports.
+Description: more in depth information about a expecific Token.
 Date: 2022-04-11
 Author: Mateo Florez
 Copyright: Copyright.md
@@ -27,9 +27,7 @@ Parameter: ReportType
 		<div class="report-container">
 {{
 if ReportType = "History" then
-(
 	Token.GenerateHistoryReport(ReportFormat.Html)
-)
 }}
 {{
 if ReportType = "Diagram" then
@@ -42,7 +40,7 @@ if ReportType = "Variables" then
 (
 ]]<div>
 <h3 class="default-blue">Current Variables</h3>
-<table>
+<table class ="table table-responsive text-start">
 <thead>
 <tr>
 <th>Property</th>

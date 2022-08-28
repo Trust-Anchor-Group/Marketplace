@@ -1,4 +1,5 @@
 
+
 code{
     color: black !important;
 }
@@ -15,7 +16,7 @@ code{
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
-	background-image: url("https://static.wixstatic.com/media/6da59a_7cd35dd6d3954668ab699ecb9a022222~mv2_d_6016_4016_s_4_2.jpg/v1/fill/w_2400,h_1049,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/6da59a_7cd35dd6d3954668ab699ecb9a022222~mv2_d_6016_4016_s_4_2.jpg");
+	background-image: url("/Marketplace/src/Collections/Cultivation/Images/heroImage.png");
 	width:100%;
 	height: 100%;
 	-webkit-mask: linear-gradient(rgb(255, 255, 255), transparent);
@@ -164,7 +165,7 @@ tr:hover {background-color: #f2f2f2;}
 }
 
 .report-button{
-	background-color: #70959d;
+	background-color: #0d6efd;
 	border-radius: 8px;
 	color: #FFFFFF;
 	padding: 10px;

@@ -4,7 +4,7 @@ Date: 2022-04-11
 Author: Mateo Florez
 Copyright: Copyright.md
 Master: /Marketplace/src/Master.md
-CSS: /Marketplace/src/Collections/Default/css/style.css
+CSS: /Marketplace/src/Collections/Cultivation/css/style.css
 Parameter: Category
 Parameter: Sort
 
@@ -69,7 +69,7 @@ if Token.Length != 0 then
 (
 (Item.BestBidPrice != null ? Price := Item.BestBidPrice : Price := Item.AskingPrice);
 ]]<div class="shadow card m-2 token_zone" style="width: 13rem;" onclick="location.href='TokenInfo.md?TokenId=((Token.TokenId[0]))'">
-<img class="card-img-top token-image" src="data:image/png;base64,((Base64Encode(Token.Glyph[0]) ))" alt="glyph-image"/>
+<img class="card-img-top token-image" src="/Marketplace/src/Collections/Cultivation/Images/tokenImage.png"  alt="glyph-image"/>
 <div class= "card-body">
 <h6 class="card-title text-start">((Token.FriendlyName[0]))</h6>
 <p class="card-text text-start">Price <br>((Price)) ((Item.Currency))</p>

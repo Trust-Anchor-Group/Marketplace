@@ -21,7 +21,7 @@ function displayOfferQR(tokenId){
     const modal = document.getElementById("offerModal");
 
     // Get the <span> element that closes the modal
-    const span = document.getElementsByClassName("close")[0];
+    const span = document.getElementsByClassName("close")[1];
 
     modal.style.display = "block";
 
