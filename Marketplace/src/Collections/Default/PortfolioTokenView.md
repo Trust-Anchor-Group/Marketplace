@@ -16,14 +16,13 @@ Parameter: TokenId
 {{ 
     Token := select top 1 * from  Waher.Service.IoTBroker.NeuroFeatures.Token where TokenId = TokenId;
 	Item := select top 1 * from Waher.Service.IoTBroker.Marketplace.AuctionItem where TokenId = Token.TokenId and Processed = null;
-	Events := select * from Waher.Service.IoTBroker.NeuroFeatures.Events.TokenEvent where TokenId = TokenId;
+	TokenEvents := select * from Waher.Service.IoTBroker.NeuroFeatures.Events.TokenEvent where TokenId = TokenId;
 }}
 </div>
 
 
-
 <div class="container info zone">
-		<div class="token-basic-info token-description-container">
+		<div class="token-basic-info token-description-container bg-secondary bg-opacity-10">
 			<div class="token-title">
 				<h2 class= "default-blue" style= "text-align: center;">{{Token.FriendlyName}}</h2>
 				<div class="token-img-container"><img class="shadow token-img" src="Images/tokenImage.png" alt="glyph-image"/></div>
@@ -44,7 +43,7 @@ Parameter: TokenId
 							<h5 class="modal-title">Scan the QR-code with your <a class="link-secondary" href="/Marketplace/src/Resources/Tutorials/TagId/TagIdResources.md">TAG ID App</a>:</5>
 						</div>
 						<div >
-							<img class="qr-code-img" src="/QR/iotsc:((Url:="2a6d24b9-a8cd-b590-602d-c8634f0510d3@legal.mateo.lab.tagroot.io?TokenID="+TokenId+"&Role=Seller"+"&Visibility=PublicSearchable"+"&Auctioneer="+Waher.IoTGateway.Setup.LegalIdentityConfiguration.LatestApprovedLegalIdentityId+"&Currency"+Token.Currency+"&CommissionPercent="+GetSetting('Commission.Min',0);
+							<img class="qr-code-img" src="/QR/iotsc:((Url:="2a9fe733-cb30-78b2-540a-dd549b0ed8a0@legal.lab.tagroot.io?TokenID="+TokenId+"&Role=Seller"+"&Visibility=PublicSearchable"+"&Auctioneer="+Waher.IoTGateway.Setup.LegalIdentityConfiguration.LatestApprovedLegalIdentityId+"&Currency="+Token.Currency+"&CommissionPercent="+GetSetting('Commission.Min',0)+"&Category="+Token.Category+"&FriendlyName="+Token.FriendlyName;
 							UrlEncode(Url) ))" alt="OR-code"/>
 						</div>
 					</div>
@@ -83,17 +82,17 @@ Parameter: TokenId
 			</div>[[;
 			);
 			}}
-			
-<div class="token-basic-info">
+		</div>
+<div class="token-basic-info bg-secondary bg-opacity-10">
 	<div class="token-description-container">
 		<div class="token-description">
-			<h2 class="default-blue">Description</h2>
+			<h4 class="default-blue">Description</h4>
 			<p>{{Token.Description}}</p>
 		</div>
 
 {{
 ]]<div>
-<h2 class="default-blue">Technical Details</h2>
+<h4 class="default-blue">Technical Details</h4>
 <table class="table table-responsive text-start">
   <thead>
 	<tr>
@@ -137,7 +136,7 @@ Parameter: TokenId
 {{
 if Token.HasStateMachine AND Token.Visibility != Waher.Service.IoTBroker.Legal.Contracts.ContractVisibility.CreatorAndParts then
 ( 
-]]<div class="token-basic-info bg-opacity-10">
+]]<div class="token-basic-info bg-secondary bg-opacity-10">
 <h3 class="default-blue" style= "text-align: center;">Present State</h3>
 
 ((Token.GeneratePresentReport() ))
@@ -150,7 +149,57 @@ if Token.HasStateMachine AND Token.Visibility != Waher.Service.IoTBroker.Legal.C
 </div>[[;
 );
 }}
-       
+<div class="token-basic-info bg-secondary bg-opacity-10">
+    <div class="token-description-container">
+        <div class="token-description">
+            <h4 class="default-blue">Token Events</h4>
+            <p>Following are the public transaction events recorded for the token</p>
+        </div>
+		<div class="table-responsive">
+		<table class ="table text-start">
+		  <thead>
+			<tr>
+				<th>Event</th>
+				<th>Price</th>
+				<th>From</th>
+				<th>To</th>
+				<th>Ownership Contract</th>
+				<th>Timestamp</th>
+			</tr>
+		  </thead>
+		  <tbody class="table-group-divider text-wrap">
+{{
+foreach event in TokenEvents do
+(
+if (event.ElementName = "Transferred" and event.Personal = false) then
+(
+]]<tr>
+<td>((event.ElementName))</td>
+<td>((event.Value)) ((event.Currency))</td>
+<td>((event.Seller))</td>
+<td>((event.Owner))</td>
+<td>((event.OwnershipContract))</td>
+<td>((event.Timestamp))</td>
+</tr>[[
+)
+else if (event.ElementName = "Created" and event.Personal = false) then
+(
+]]<tr>
+<td>((event.ElementName))</td>
+<td>((event.Value)) ((event.Currency))</td>
+<td></td>
+<td>((event.Owner))</td>
+<td>((event.OwnershipContract))</td>
+<td>((event.Timestamp))</td>
+</tr>[[
+)
+)
+}}
+</tbody>
+</table>
+</div>
+<button type="button" class="btn btn-primary" onclick="location.href='Reports.md?TokenId={{Token.TokenId}}&ReportType=Events'">View all events</button>
+</div>
 </div>
 {{
 C := Token.Category = null ? null : Token.Category;
@@ -181,4 +230,4 @@ do
 )
 }}
 </div>
-
+</div>
