@@ -10,7 +10,7 @@ CSS: /Marketplace/src/Collections/Default/css/style.css
 
 
 <div class="container px-4 py-5" id="custom-cards">
-<h4 class="pb-2 border-bottom text-center">Help center </h4>
+	<h4 class="pb-2 border-bottom text-center">Help center </h4>
 <div class="row row-cols-1 row-cols-lg-1 align-items-start g-4 py-5">
 	<a class="text-decoration-none" href="TagId.md">
 		<div class="col">
@@ -22,4 +22,11 @@ CSS: /Marketplace/src/Collections/Default/css/style.css
 		</div>
 	</a>
 </div>
+	<h4 class=" text-center">
+		Find TAG ID where you find apps
+	</h4>
+	<div class="container text-center">
+		<a href="https://apps.apple.com/tr/app/trust-anchor-id/id1580610247" target="_blank"><img class="app-badges-apple" alt='Download on the App Store' src='/Marketplace/src/Themes/images/apple-badge-black.png'></a> 
+		<a href='https://play.google.com/store/apps/details?id=com.tag.IdApp&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank" ><img class="app-badges" alt='Get it on Google Play' src='/Marketplace/src/Themes/images/google-play-badge.png'></a>
+	</div>
 </div>
