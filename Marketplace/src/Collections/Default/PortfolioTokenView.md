@@ -41,13 +41,12 @@ Parameter: TokenId
                     <div class="modal-content">
                         <span class="close">&times;</span>
 						<div class="modal-header">
-							<h5 class="modal-title">Scan the QR-code with your TAG ID App:</p>
+							<h5 class="modal-title">Scan the QR-code with your <a class="link-secondary" href="/Marketplace/src/Resources/Tutorials/TagId/TagIdResources.md">TAG ID App</a>:</5>
 						</div>
 						<div >
 							<img class="qr-code-img" src="/QR/iotsc:((Url:="2a6d24b9-a8cd-b590-602d-c8634f0510d3@legal.mateo.lab.tagroot.io?TokenID="+TokenId+"&Role=Seller"+"&Visibility=PublicSearchable"+"&Auctioneer="+Waher.IoTGateway.Setup.LegalIdentityConfiguration.LatestApprovedLegalIdentityId+"&Currency"+Token.Currency+"&CommissionPercent="+GetSetting('Commission.Min',0);
 							UrlEncode(Url) ))" alt="OR-code"/>
 						</div>
-							<p><strong>Or</strong> copy the following link and paste it into your application: </br> <code>iotsc:((Url))</code></p>
 					</div>
 				</div>
             </div>[[;
