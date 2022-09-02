@@ -65,7 +65,7 @@ Parameter: TokenId
 					<div class="modal-content">
 						<span class="close">&times;</span>
 						<div class="modal-header">
-							<h5 class="modal-title">Scan the QR-code with your <a class="link-secondary" href="/Marketplace/src/Resources/Tutorials/TagId/TagIdResources.md">TAG ID App</a>:</p>
+							<h5 class="modal-title">Scan the QR-code with your <a class="link-primary text-decoration-none" href="/Marketplace/src/Resources/Tutorials/TagId/TagIdResources.md">TAG ID</a> app:</p>
 						</div>
 						<img class="qr-code-img" src="/QR/iotsc:{{Url:="2a7d62ce-a8e5-d476-9c1f-618860926193@legal.mateo.lab.tagroot.io?RequestForTendersId="+Item.ContractId+"&Visibility=PublicSearchable"+"&Price="+Item.AcceptPrice+"&Currency="+Item.Currency+"&Role=Buyer"+"&Auctioneer="+Waher.IoTGateway.Setup.LegalIdentityConfiguration.LatestApprovedLegalIdentityId;
 						UrlEncode(Url)}}" alt="OR-code"/>
@@ -78,7 +78,7 @@ Parameter: TokenId
 					<div class="modal-content">
 						<span class="close">&times;</span>
 						<div class="modal-header">
-							<h5 class="modal-title">Scan the QR-code with your <a class="link-secondary" href="/Marketplace/src/Resources/Tutorials/TagId/TagIdResources.md">TAG ID App</a>:</p>
+							<h5 class="modal-title">Scan the QR-code with your <a class="link-primary text-decoration-none" href="/Marketplace/src/Resources/Tutorials/TagId/TagIdResources.md">TAG ID</a> app:</p>
 						</div>
 						<img class="qr-code-img" src="/QR/iotsc:{{Url:="2a7d62ce-a8e5-d476-9c1f-618860926193@legal.mateo.lab.tagroot.io?RequestForTendersId="+Item.ContractId+"&Currency="+Item.Currency+"&Visibility=PublicSearchable"+"&Role=Buyer"+"&Auctioneer="+Waher.IoTGateway.Setup.LegalIdentityConfiguration.LatestApprovedLegalIdentityId;
 						UrlEncode(Url)}}" alt="OR-code"/>
@@ -133,7 +133,7 @@ if Token.Visibility == Waher.Service.IoTBroker.Legal.Contracts.ContractVisibilit
   </tr>
   </tbody>
 </table>
-<p><strong>Scan</strong> the QR-code bellow with the <strong>TAG ID</strong> app to see more information:</p>
+<p><strong>Scan</strong> the QR-code bellow with the <strong><a class="link-dark text-decoration-none" href="/Marketplace/src/Resources/Tutorials/TagId/TagIdResources.md">TAG ID</a></strong> app to see more information:</p>
 <img class="qr-code-img" src="/QR/nfeat:((TokenId))" alt="OR-code"/>
 </div>[[
 );

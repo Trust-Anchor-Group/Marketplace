@@ -39,7 +39,7 @@ Access-Control-Allow-Origin: {{QuickLoginNeuron}}
 Parameter: from
 
 <div class="container text-center mt-5">
-	<h2 class="display-6 border-bottom">To login scan the QR-Code with your TAG ID application.</h2>
+	<h2 class="display-6 border-bottom">To login scan the QR-Code with your <a class="link-primary text-decoration-none" href="/Marketplace/src/Resources/Tutorials/TagId/TagIdResources.md">TAG ID</a> application.</h2>
 	<div class="container">
 	<div id="quickLoginCode"
      		data-mode="image"

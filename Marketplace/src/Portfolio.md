@@ -106,19 +106,20 @@ if Tokens.Length > 0 then
 </div>
 <div class="container my-4">
 	<form action="?Sort=">
-		<label for="tokens">Sort by:</label>
-		<select name="Sort" id="sort">
-		<optgroup label="Price">
-			<option value="Value ASC">Low to High</option>
-			<option value="Value DESC">High to Low</option>
-		</optgroup>
-		<optgroup label="Name">
-			<option value="Name ASC">Ascending</option>
-			<option value="Name DESC">Descending</option>
-		</optgroup>
-		</select>
-		<br><br>
-		<input type="submit" value="Submit">
+		<div class="mb-3">
+			<label for="tokens">Sort by:</label>
+			<select name="Sort" id="sort" class="form-select w-auto">
+				<optgroup label="Price">
+					<option value="Value ASC">Low to High</option>
+					<option value="Value DESC">High to Low</option>
+				</optgroup>
+				<optgroup label="Name">
+					<option value="Name ASC">Ascending</option>
+					<option value="Name DESC">Descending</option>
+				</optgroup>
+			</select>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 </div>
 <div class="zone grid-wrapper mt-3">[[;
