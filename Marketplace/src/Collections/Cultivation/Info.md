@@ -46,16 +46,17 @@ Parameter: Sort
 	</div>
 		<div class="container my-4">
 			<form>
-				<input type="hidden" name="Category" value="{{Category}}">
-				<label for="tokens">Sort by:</label>
-				<select name="Sort" id="sort">
-				<optgroup label="Price">
-				  <option value="Value ASC">Low to High</option>
-				  <option value="Value DESC">High to Low</option>
-				</optgroup>
-			  </select>
-			  <br><br>
-			  <input type="submit" value="Submit">
+				<div class="mb-3">
+					<input type="hidden" name="Category" value="{{Category}}">
+					<label for="tokens"  class="form-label">Sort by:</label>
+					<select name="Sort" id="sort" class="form-select w-auto">
+						<optgroup label="Price">
+						  <option value="Value ASC">Low to High</option>
+						  <option value="Value DESC">High to Low</option>
+						</optgroup>
+					</select>
+				</div>
+			  <button type="submit" class="btn btn-primary">Submit</button>
 			</form>
 		</div>
 <div class="more-from-collection">

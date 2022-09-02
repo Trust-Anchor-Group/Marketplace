@@ -95,7 +95,7 @@ else
 		</div>
         <div>
           <h6 >Setup TAG ID App</h6>
-          <p>Once you’ve downloaded and set-up the <span class="text-primary">TAG ID</span> app from the app store, log in by clicking the Login button in the top right corner.<p>
+          <p>Once you’ve downloaded and set-up the <a class="text-primary" href="/Marketplace/src/Resources/Tutorials/TagId/TagIdResources.md">TAG ID</a> app from the app store, log in by clicking the Login button in the top right corner.<p>
         </div>
       </div>
       <div class="feature-col text-center">
